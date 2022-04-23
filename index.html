@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!----------------- logo--------------------- -->
+    <link rel="shortcut icon" href="images/logo/logo.jpg" type="image/x-icon">
+
+    <title>EshoP!</title>
+
+    <!-- ====================icon link===================  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- custom js  -->
+    <script src="js/index.js" defer></script>
+
+    <!-- ==============custom css===============  -->
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+    <!-- =================header section =================== -->
+    <header>
+        <div class="header">
+            <a href="">Save more on app</a>
+            <a href="">sell on eshop</a>
+            <a href="">Track my order</a>
+            <a type="button" class=" text-decoration-underline fs-3 text-bold" data-bs-toggle="modal"
+                data-bs-target="#login">
+                log in
+            </a>
+            <a class="text-decoration-underline fs-3 text-bold" data-bs-toggle="modal" data-bs-target="#signup"
+                data-bs-whatever="@fat">Sign
+                up</a>
+
+            <!-- sign up modal -->
+            <div class="modal fade" id="signup" tabindex="-1" aria-labelledby="signupLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title  text-center" id="signupLabel">Sign up</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="dataForm">
+                                <div class="mb-3">
+                                    <input id="name" type="email" class="form-control" placeholder="Your Email"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <input id="pass" type="password" class="form-control" placeholder="Password"
+                                        required>
+                                </div>
+                                <div class="mb-3 ">
+                                    <button class="btn btn-success" type="submit" onclick="sentData()">submit</button>
+                                    <button class="btn btn-warning" type="reset">reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sign up modal end  -->
+
+            <!-- log in modal start -->
+            <div class="modal fade login-modal" id="login" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="loginLabel">Log In</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <input id="log-in-email" type="eamil" class="form-control" placeholder="Username"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <input id="log-in-pass" type="password" class="form-control" placeholder="Password"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="login-button" class="btn btn-success" type="submit">Go -></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- log in modal end  -->
+
+
+        </div>
+        <nav class="navbar navbar-expand-lg  container-fluid">
+            <div class="container">
+                <a class="navbar-brand fs-1 fw-bold text-white" href="#">
+                    <img src="images/image-removebg-preview (11).png" style="width:80px; height: 80px;" alt="">
+                    eshop</a>
+                <button class="navbar-toggler border-white text-white p-1" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"><i class="fa-solid fa-align-justify"></i></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <form class="form d-flex mx-lg-auto w-75">
+                        <input id="input" class="form-control  me-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button id="search-btn" class="btn btn-outline-success" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                    <ul class="navbar-nav ms-0 ">
+                        <li class="nav-item cart-item mt-3 mt-lg-0">
+                            <p id="cart-item-counter" class="cart-item-counter badge bg-danger">0</p>
+                            <a class="nav-link" href="#offcanvas-box" onclick="showCart()"><i
+                                    class="fa-solid fa-cart-arrow-down "></i></a>
+                        </li>
+                        <li class="nav-item cart-item">
+                            <p id="reacted-item" class="cart-item-counter badge bg-danger">0</p>
+                            <a class="nav-link" href=""><i class="fa-solid fa-heart"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="menu">
+            <a href="#featured" class="text-white">Today's Deals</a>
+            <a class="text-white" onclick="window.open('tel:900300400');">Customer Service</a>
+            <a class="text-white">Registry</a>
+            <a class="text-white" onclick="alert(`You have no gift card`)">Gift Cards</a>
+            <a class="text-white">Sell</a>
+        </div>
+
+    </header>
+    <!-- ==================== main section ============== -->
+    <main>
+
+        <!-- carousel slider  -->
+        <div class="hero">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row ">
+                            <div class="car-img col-12 col-md-4 pt-4 ps-md-5">
+                                <img src="images/slider/image-removebg-preview (11).png" class="d-block img-fluid"
+                                    alt="..." style="height: 600px;">
+                            </div>
+                            <div
+                                class="car-text text-center text-md-start col-12 col-md-8 p-4 d-flex justify-content-center align-items-center flex-column">
+                                <p class="">Great Deals</p>
+                                <h1 class="heading"><span>Jewellery</span></h1>
+                                <h2 class="car-heading fs-1 fw-bold">Figured with Our Collection</h2>
+
+                                <button class="btn car-btn mt-3 fw-bold mt-5">shop now</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row ">
+                            <div class="car-img col-12 col-md-4 pt-4 ps-md-5">
+                                <img src="images/slider/t-shirt-removebg-preview.png" class="d-block img-fluid"
+                                    alt="..." style="height: 600px;">
+                            </div>
+
+                            <div
+                                class="car-text text-center text-md-start col-12 col-md-8 p-4 d-flex justify-content-center align-items-center flex-column">
+                                <p class="">Great Deals</p>
+                                <h1 class="heading"><span>Men's World </span><br></h1>
+                                <h2 class="car-heading fs-1 fw-bold">Trendy Collection</h2>
+
+                                <button class="btn car-btn mt-3 fw-bold mt-5">shop now</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row ">
+                            <div class="car-img col-12 col-md-4 pt-4 ps-md-5">
+                                <img src="images/slider/kids.png" class="d-block img-fluid" alt="..."
+                                    style="height: 600px;">
+                            </div>
+                            <div
+                                class="car-text text-center text-md-start col-12 col-md-8 p-4 d-flex justify-content-center align-items-center flex-column">
+                                <p class="">Great Deals</p>
+                                <h1 class="heading"><span>Kids Gallery</span><br></h1>
+                                <h2 class="car-heading fs-1 fw-bold  ">Exclusive Collection</h2>
+
+                                <button class="btn car-btn mt-3 fw-bold mt-5">shop now</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- offcanvas -->
+        <div id="offcanvas-box" class="offcanvas-box   py-4">
+            <button class="btn d-block ms-auto mb-4 fs-2 close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-center fs-1 fw-bold">Your Cart</h2>
+            <div
+                class="canvas-box-body d-flex flex-column flex-lg-row align-items-center mt-4 flex-wrap justify-content-center">
+
+            </div>
+        </div>
+        <div class="container product-container">
+            <!-- allproduct  -->
+            <h2 class="text-center fs-1 fw-bold mt-5">New Arrivals</h2>
+            <p class="lead text-center">Your best choice is here</p>
+            <!-- newArrival  -->
+            <div class="newArrival text-end mt-5">
+                <div class=" d-flex justify-content-center align-items-center flex-wrap">
+                    <div class="card mb-3" style="max-width: 400px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/newarrival/watch.jfif" class="img-fluid rounded-start image" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body text-center ">
+                                    <h5 class="card-title">Men's Watch</h5>
+                                    <p class="card-text"><strong class="text-muted">Up to 40% off</strong></p>
+
+                                    <button onclick="displayBoughtItem(`images/newarrival/watch.jfif`,`Men's Watch`)"
+                                        class="btn text-decoration-underline shop-now">shop
+                                        now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3 mx-3" style="max-width: 400px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/newarrival/jacket.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Men's Jacket</h5>
+                                    <p class="card-text"><strong class="text-muted">Up to 30% off</strong></p>
+
+                                    <button onclick="displayBoughtItem( `images/newarrival/jacket.jpg`, `Men's Jacket`)"
+                                        class="btn text-decoration-underline shop-now">shop
+                                        now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 400px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/newarrival/bag.jfif" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Latest hand Bag</h5>
+                                    <p class="card-text"><strong class="text-muted">Up to 60% off</strong></p>
+
+                                    <button
+                                        onclick="displayBoughtItem( `images/newarrival/bag.jfif`, `Latest hand Bag`)"
+                                        class="btn text-decoration-underline shop-now">shop
+                                        now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="allproduct text-end mt-5">
+
+                <div class="">
+                    <h2 class="ms-4 text-start product-heading my-4">Flash Sale</h2>
+                    <div class="time d-flex align-items-center">
+                        <h4 class="ps-3 fw-bold ">Ending in : </h4>
+                        <button id="day" class="btn time">06</button>
+                        <button id="hour" class="btn time">00</button>
+                        <button id="sec" class="btn time">00</button>
+                    </div>
+                </div>
+
+                <div class="products  d-flex justify-content-center align-items-center flex-wrap">
+
+                </div>
+
+            </div>
+            <!-- jewellery -->
+            <div class="products text-end mt-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="ms-4 text-center product-heading my-4">Jewellery</h2>
+                    <button class="see-all btn product-btn">see all</button>
+                </div>
+                <div class="jewellery d-flex justify-content-center align-items-center flex-wrap">
+
+                </div>
+
+            </div>
+            <!-- electronics -->
+            <div class="products text-end mt-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="ms-4 text-center product-heading my-4">Electronics</h2>
+                    <button class="see-all btn product-btn">see all</button>
+                </div>
+                <div class="electronics d-flex justify-content-center align-items-center flex-wrap">
+
+                </div>
+
+            </div>
+            <!-- womens  -->
+            <div class="products text-end mt-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="ms-4 text-center product-heading my-4">Womens Collection</h2>
+                    <button class="see-all btn product-btn">see all</button>
+                </div>
+                <div class="womens d-flex justify-content-center align-items-center flex-wrap">
+
+                </div>
+            </div>
+            <!-- mens -->
+            <div class="products text-end my-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="ms-4 text-center product-heading my-4">men's Collection</h2>
+                    <button class="see-all btn product-btn">see all</button>
+                </div>
+                <div class="mens d-flex justify-content-center align-items-center flex-wrap">
+
+                </div>
+            </div>
+        </div>
+        <!-- featured  -->
+        <div id="featured" class="featured container-fluid">
+            <div class="container tadays-deal d-flex flex-column flex-md-row justify-content-evenly align-items-center">
+                <img class="flex-1" src="images/featured/image-removebg-preview (11).png" alt="">
+
+                <div class="featured-text text-center mt-5 mt-md-0">
+                    <h3 class="text-dark fw-bold feature-heading1 ">Deal of the Day</h3>
+                    <h2 class="text-white fs-1 fw-bold feature-heading">Trendy Suit</h2>
+                    <p class="text-white">Limited Offer! Grab it Now !</p>
+                    <button id="deal" class="btn featured-btn product-btn">shop Now</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!--========================= footer sectio===========================  -->
+    <footer>
+
+        <div class="customer-care container-fluid">
+            <div class=" d-flex align-items-center  flex-column flex-md-row justify-content-md-between container py-5">
+                <div class="text-white text-center text-md-start">
+                    <p>Help center</p>
+                    <p>How to buy</p>
+                    <p>Corporate & Bulk Purchasing</p>
+                    <p>Contact Us</p>
+
+                    <h3 class="text-white fs-3 fw-bold">Start your Business <br> with eshop</h3>
+                    <p>Sell On eshop</p>
+                    <p>join our program</p>
+                </div>
+                <div class="icons  text-white text-center ">
+                    <img src="images/image-removebg-preview (11).png" alt="" style="height:100px; width: 90px;">
+                    <h3 class="text-white fs-3 fw-bold">eshop</h3>
+                    <p>Thanks for visiting us</p>
+                    <p>Stay Connected</p>
+                    <a href="facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="twitter.com"> <i class="fa-brands fa-twitter"></i></a>
+                    <a href="instagram.com"> <i class="fa-brands fa-instagram-square"></i></a>
+
+                </div>
+
+
+
+                <div class="text-white text-center ">
+                    <img src="images/image-removebg-preview (11).png" alt="" style="height:100px; width: 90px;">
+                    <h3 class="text-white fs-3 fw-bold">eshop</h3>
+                    <p>online grocery shopping</p>
+                    <p>How to shop on eshop</p>
+                    <p>eshop exclusive</p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <!-- external js  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+
+</body>
+
+</html>
